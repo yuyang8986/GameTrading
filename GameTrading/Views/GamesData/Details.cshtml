@@ -1,0 +1,35 @@
+﻿@model GameTrading.Models.GamesData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Games</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Platform)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Platform)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GameID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

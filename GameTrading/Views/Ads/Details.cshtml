@@ -1,0 +1,58 @@
+﻿@model GameTrading.Models.Ad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.games.GameName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.games.GameName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adexpirydate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adexpirydate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOrSell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOrSell)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AdID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

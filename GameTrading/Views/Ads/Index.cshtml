@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GameTrading.Models.Ad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Ads"))
+{
+    @Html.Editor("SearchBox")
+    <input type="submit", value="Search"/>
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.games.GameName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdCommenceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adexpirydate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOrSell)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.games.GameName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdCommenceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adexpirydate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BOrSell)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AdID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AdID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AdID })
+        </td>
+    </tr>
+}
+
+</table>
