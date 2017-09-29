@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<GameTrading.Models.Ad>
-
+@using GameTrading.Helpers;
 @{
     ViewBag.Title = "Index";
 }
@@ -25,6 +25,9 @@
             @Html.DisplayNameFor(model => model.games.GameName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.games.GameDescription)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
@@ -46,6 +49,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.games.GameName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.games.GameDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)

@@ -14,6 +14,7 @@ namespace GameTrading.Models
         public int CustomerID { get; set; }
         public int GameID { get; set; }
         public string GameName { get; set; }
+        public string GameDescription { get; set; }
         public virtual GamesData games { get; set; }
         public virtual Customer customer { get; set; }
 

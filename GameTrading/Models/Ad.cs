@@ -13,7 +13,7 @@ namespace GameTrading.Models
         [Key]
         public int AdID { get; set; }
         public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
+        public string CustomerName { get;set; }
         public int GameID { get; set; }
         public string GameName { get; set; }
         public string GameDescription { get; set; }

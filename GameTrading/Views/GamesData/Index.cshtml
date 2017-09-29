@@ -21,29 +21,35 @@
 <table class="table">
     <tr>
         <th>
-           Game Name:
+            Game Name:
             @*@Html.DisplayNameFor(model => model.GameName)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Platform):
+            Game Description:
         </th>
-        <th></th>
+        <th>
+            Platform:
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-           @Html.Truncate(item.GameName, 20)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Platform)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GameID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GameID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GameID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Truncate(item.GameName, 20)
+            </td>
+            <td>
+                @Html.Truncate(item.GameDescription, 20)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Platform)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GameID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GameID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GameID })
+            </td>
+        </tr>
+    }
 
 </table>

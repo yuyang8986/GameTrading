@@ -14,8 +14,8 @@ namespace GameTrading.Models
             //make some seed data
             var gamesList = new List<GamesData>
             {
-                new GamesData { GameName = "FIFA 18", GameID = 1, Platform = "PS4, XBOX, PC, NS"},
-                new GamesData { GameName = "The Legend of Zelda", GameID = 2, Platform = "NS"}
+                new GamesData { GameName = "FIFA 18", GameID = 1, Platform = "PS4, XBOX, PC, NS", GameDescription = "FIFA 18"},
+                new GamesData { GameName = "The Legend of Zelda", GameID = 2, Platform = "NS", GameDescription = "Zelda"}
             };
 
             foreach (var temp in gamesList)
