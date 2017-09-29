@@ -12,8 +12,12 @@ namespace GameTrading.Models
     {
         [Key]
         public int GameID { get; set; }
+        [Required(ErrorMessage ="Game Name is required!")]
+        [Display(Name = "Game Name")]
         public string GameName { get; set; }
+        [Required(ErrorMessage = "Platform is required!")]
         public string Platform { get; set; }
+        [Display(Name = "Game Description")]
         public string GameDescription { get; set; }
         public virtual ICollection<Customer> customer { get; set; }
         

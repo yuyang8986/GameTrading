@@ -13,9 +13,7 @@ namespace GameTrading.Models
         public DbSet<GamesData> games { get; set; }
         public DbSet<Customer> customer { get; set; }
         public DbSet<Ad> ad { get; set; }
-        public DbSet<CustomerOwnGame> customerOwnGame { get; set; }
-
-        //make database table singular
+     
       
     }
 }

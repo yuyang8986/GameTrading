@@ -11,7 +11,9 @@ namespace GameTrading.Models
     public class Customer
     {
         [Key]
+        [Display(Name = "Customer Number")]
         public int CustomerID { get; set; }
+        [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
         public string Address { get; set; }
         public string Contact { get; set; }

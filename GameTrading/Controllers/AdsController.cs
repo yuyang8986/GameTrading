@@ -72,7 +72,7 @@ namespace GameTrading.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AdID,CustomerID,GameID,GameName, GameDescription, Price,AdCommenceDate,Adexpirydate,BOrSell")] Ad ad)
+        public ActionResult Create([Bind(Include = "AdID,CustomerID,GameID,GameName, GameDescription, Price,AdCommenceDate,Adexpirydate,Swap")] Ad ad)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace GameTrading.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AdID,CustomerID,GameID,GameName, GameDescription, Price,AdCommenceDate,Adexpirydate,BOrSell")] Ad ad)
+        public ActionResult Edit([Bind(Include = "AdID,CustomerID,GameID,GameName, GameDescription, Price,AdCommenceDate,Adexpirydate,Swap")] Ad ad)
         {
             if (ModelState.IsValid)
             {

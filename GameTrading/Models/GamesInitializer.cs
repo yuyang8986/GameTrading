@@ -23,13 +23,16 @@ namespace GameTrading.Models
                 context.games.Add(temp);
             }
             context.SaveChanges();
-            // How to add game to a customer?
+
+            
             var customerList = new List<Customer>
             {
-                new Customer { CustomerName = "Lulu", CustomerID = 1, Address = "24 Koorine St, Ermington", Contact = "0430490668" },
+                new Customer { CustomerName = "Lulu", CustomerID = 1, Address = "24 Koorine St, Ermington", Contact = "0430490668"},
                 new Customer { CustomerName = "Yang", CustomerID = 2, Address = "2 Morton St, Parramatta" }
 
             };
+
+           
 
             foreach (var temp in customerList)
             {
@@ -37,23 +40,10 @@ namespace GameTrading.Models
             }
             context.SaveChanges();
 
-            var customerGameList = new List<CustomerOwnGame>
-            {
-                new CustomerOwnGame { CustomerID = 1, GameID = 1 },
-                new CustomerOwnGame { CustomerID = 2 , GameID =2 }
-
-            };
-
-            foreach (var temp in customerGameList)
-            {
-                context.customerOwnGame.Add(temp);
-            }
-            context.SaveChanges();
-
             var adList = new List<Ad>
             {
-                new Ad { AdID = 1, CustomerID = 1, GameID = 1, GameName = "FIFA 18",AdCommenceDate = DateTime.Parse("2014/7/7"), Adexpirydate = DateTime.Parse("2014/1/2"), BOrSell = true, Price = 50,},
-                new Ad { AdID = 2, CustomerID = 2, GameID = 2, GameName = "The Legend of Zelda", AdCommenceDate = DateTime.Parse("2014/7/7"), Adexpirydate = DateTime.Parse("2014/1/2"), BOrSell = false, Price = 60,},
+                new Ad { AdID = 1, CustomerID = 1, GameID = 1, GameName = "FIFA 18",AdCommenceDate = DateTime.Parse("2014/7/7"), Adexpirydate = DateTime.Parse("2014/1/2"), Swap = true, Price = 50},
+                new Ad { AdID = 2, CustomerID = 2, GameID = 2, GameName = "The Legend of Zelda", AdCommenceDate = DateTime.Parse("2014/7/7"), Adexpirydate = DateTime.Parse("2014/1/2"), Swap = false, Price = 60},
 
             };
 
