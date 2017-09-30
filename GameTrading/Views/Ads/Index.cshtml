@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<GameTrading.Models.Ad>
 @using GameTrading.Helpers;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ads";
 }
 
-<h2>Index</h2>
+<h2>Advertisement</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -22,10 +22,10 @@
             @Html.DisplayNameFor(model => model.customer.CustomerName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.games.GameName)
+            @Html.DisplayNameFor(model => model.GameName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.games.GameDescription)
+            @Html.DisplayNameFor(model => model.GameDescription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)

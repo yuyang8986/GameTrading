@@ -33,8 +33,6 @@ namespace GameTrading.Models
         public DateTime Adexpirydate { get; set; }
         [Display(Name = "Swap")]
         public Boolean Swap { get; set; }
-        [Timestamp]
-        public byte[] stamp { get; set; }
         public virtual GamesData games { get; set; }
         public virtual Customer customer { get; set; }
 
