@@ -38,7 +38,8 @@ namespace GameTrading.Controllers
             GamesData games = db.games.Find(id);
             if (games == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404, "Course Id not Found!");
+                //return HttpNotFound();
             }
             return View(games);
         }
