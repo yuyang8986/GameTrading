@@ -10,8 +10,10 @@ using GameTrading.Models;
 
 namespace GameTrading.Controllers
 {
+    [Authorize]
     public class AdsController : Controller
     {
+      
         private GamesContext db = new GamesContext();
 
         public ActionResult Search(string SearchBox)

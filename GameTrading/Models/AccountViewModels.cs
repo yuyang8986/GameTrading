@@ -8,6 +8,10 @@ namespace GameTrading.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        public string Username { get; set; }
+        public string Country { get; set; }
+        public System.DateTime? BirthDate { get; set; }
+
     }
 
     public class ExternalLoginListViewModel

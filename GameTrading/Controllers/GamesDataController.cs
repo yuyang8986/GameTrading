@@ -10,6 +10,7 @@ using GameTrading.Models;
 
 namespace GameTrading.Controllers
 {
+    [Authorize/*(Roles = "Admin")*/]
     public class GamesDataController : Controller
     {
         private GamesContext db = new GamesContext();

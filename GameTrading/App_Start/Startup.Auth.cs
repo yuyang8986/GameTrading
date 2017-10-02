@@ -58,11 +58,9 @@ namespace GameTrading
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(
+      clientId: "166545452272-nrti03dtaq07oenhg4eblhhuovh05p77.apps.googleusercontent.com",
+      clientSecret: "F3tHzuBaNQv0-HNXWvNs5V3_");
         }
     }
-}
+    }
