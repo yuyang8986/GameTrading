@@ -290,8 +290,8 @@
     <Content Include="Views\Ads\Edit.cshtml" />
     <Content Include="Views\Ads\Index.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
-    <Content Include="Views\Shared\_Layout2.chtml" />
     <Content Include="Views\Shared\_LayoutDetails .cshtml" />
+    <Content Include="Views\Customers\GamesOwn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL\" />

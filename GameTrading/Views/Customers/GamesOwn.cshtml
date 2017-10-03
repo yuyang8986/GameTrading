@@ -1,0 +1,11 @@
+﻿@model IEnumerable<GameTrading.Models.GamesData>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @foreach (var own in Model)
+        {
+            <li>@own.GameName</li>
+            <li>@own.GameDescription</li>
+         }
+    </ul>
+</div>

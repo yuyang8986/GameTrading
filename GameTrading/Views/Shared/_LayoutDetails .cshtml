@@ -41,7 +41,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Larry Yu</p>
+            @{ Html.RenderAction("GamesOwn", "GamesData");}
         </footer>
     </div>
 
