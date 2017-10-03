@@ -19,6 +19,9 @@ namespace GameTrading.Models
         public string Platform { get; set; }
         [Display(Name = "Game Description")]
         public string GameDescription { get; set; }
+        [Column(TypeName = "image")]
+        public byte[] Picture { get; set; }
+        public string ImagePath { get; set; }
         public virtual ICollection<Customer> customer { get; set; }
         
 

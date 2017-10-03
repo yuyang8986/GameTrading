@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GameTrading.Models;
+using System.IO;
 
 namespace GameTrading.Controllers
 {
@@ -18,8 +19,8 @@ namespace GameTrading.Controllers
         public ActionResult Search(string SearchBox)
         {
             var games = (from s in db.games
-                             where s.GameName.Contains(SearchBox)
-                             select s).ToList();
+                         where s.GameName.Contains(SearchBox)
+                         select s).ToList();
             return View("Index", games);
         }
 
@@ -51,15 +52,37 @@ namespace GameTrading.Controllers
             return View();
         }
 
+        public ActionResult GetImage(int id)
+        {
+            byte[] imageData = db.games.Find(id).Picture;
+            return File(imageData, "image/jpeg");
+        }
+
         // POST: GamesData/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GameID,GameName,GameDescription, Platform")] GamesData games)
+        public ActionResult Create([Bind(Include = "GameID,GameName,GameDescription, Platform, ")] GamesData games, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
+                if (ImageFile != null)
+                {
+                    string pic = System.IO.Path.GetFileName(ImageFile.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/images/profile"), pic);
+                    ImageFile.SaveAs(path);
+
+                    games.ImagePath = pic;
+                   
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        ImageFile.InputStream.CopyTo(ms);
+                        games.Picture = ms.GetBuffer();
+
+                    }
+
+                }
                 db.games.Add(games);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -14,6 +14,16 @@ namespace GameTrading.Controllers
     {
         private GamesContext db = new GamesContext();
 
+        [ChildActionOnly]
+        public ActionResult Platform()
+        {
+            var platforms = db.games.ToList();
+            return PartialView(platforms);
+
+        }
+
+
+
         public ActionResult Search(string SearchBox)
         {
             var customers = (from s in db.customer
