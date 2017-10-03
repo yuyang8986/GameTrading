@@ -27,8 +27,8 @@ namespace GameTrading.Models
             
             var customerList = new List<Customer>
             {
-                new Customer { CustomerName = "Lulu", CustomerID = 1, Address = "24 Koorine St, Ermington", Contact = "0430490668"},
-                new Customer { CustomerName = "Yang", CustomerID = 2, Address = "2 Morton St, Parramatta" }
+                new Customer { CustomerName = "Lulu", CustomerID = 1, Address = "24 Koorine St, Ermington", Contact = "0430490668", Email = "yuyang8986@gmail.com"},
+                new Customer { CustomerName = "Yang", CustomerID = 2, Address = "2 Morton St, Parramatta", Email = "yuyang8986@gmail.com" }
 
             };
 

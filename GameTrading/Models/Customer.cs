@@ -17,6 +17,10 @@ namespace GameTrading.Models
         public string CustomerName { get; set; }
         public string Address { get; set; }
         public string Contact { get; set; }
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
         public virtual ICollection<Ad> ad { get; set; }
         public virtual ICollection<GamesData> games { get; set; }
         
