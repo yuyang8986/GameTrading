@@ -10,123 +10,107 @@ using GameTrading.Models;
 
 namespace GameTrading.Controllers
 {
-    public class CustomersController : Controller
+    public class StatusController : Controller
     {
         private GamesContext db = new GamesContext();
 
-        [ChildActionOnly]
-        public ActionResult GamesOwn()
-        {
-            var gamesown = db.games.ToList();
-            return PartialView(gamesown);
-
-        }
-        public ActionResult Search(string SearchBox)
-        {
-            var customers = (from s in db.Customer
-                             where s.CustomerName.Contains(SearchBox)
-                             || s.Contact.Contains(SearchBox)
-                             select s).ToList();
-
-            return View("Index", customers);
-        }
-        // GET: Customers
+        // GET: Status
         public ActionResult Index()
         {
-            return View(db.Customer.ToList());
+            return View(db.Status.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Status/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(status);
         }
 
-        // GET: Customers/Create
+        // GET: Status/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Status/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,CustomerName,Address,Contact, Email")] Customer customer)
+        public ActionResult Create([Bind(Include = "StatusID")] Status status)
         {
             if (ModelState.IsValid)
             {
-                db.Customer.Add(customer);
+                db.Status.Add(status);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            return View(status);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Status/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(status);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Status/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,CustomerName,Address,Contact, Email")] Customer customer)
+        public ActionResult Edit([Bind(Include = "StatusID")] Status status)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(status).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(status);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Status/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(status);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Status/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customer.Find(id);
-            db.Customer.Remove(customer);
+            Status status = db.Status.Find(id);
+            db.Status.Remove(status);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

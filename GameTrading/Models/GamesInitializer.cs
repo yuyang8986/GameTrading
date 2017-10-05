@@ -36,7 +36,7 @@ namespace GameTrading.Models
 
             foreach (var temp in customerList)
             {
-                context.customer.Add(temp);
+                context.Customer.Add(temp);
             }
             context.SaveChanges();
 

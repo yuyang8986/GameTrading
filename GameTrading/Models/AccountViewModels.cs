@@ -113,4 +113,9 @@ namespace GameTrading.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class ConfirmEmailViewModel
+    {
+        public bool IsNewUser { get; set; }
+    }
 }

@@ -17,6 +17,8 @@
     <input type="submit" value="Search" class="btn-primary"/>
 }
 
+
+
 <table class="table">
     <tr>
         <th>
@@ -52,7 +54,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })|
+                @Html.ActionLink("Customer Admin", "Index", "CustomerAdmin", new { id = item.CustomerID}, null)
             </td>
         </tr>
     }

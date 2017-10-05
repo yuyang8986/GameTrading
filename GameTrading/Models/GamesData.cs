@@ -22,7 +22,7 @@ namespace GameTrading.Models
         [Column(TypeName = "image")]
         public byte[] Picture { get; set; }
         public string ImagePath { get; set; }
-        public virtual ICollection<Customer> customer { get; set; }
+        public virtual Customer customer { get; set; }
         
 
     }

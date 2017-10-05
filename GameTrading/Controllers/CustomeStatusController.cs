@@ -10,33 +10,21 @@ using GameTrading.Models;
 
 namespace GameTrading.Controllers
 {
-    public class CustomersController : Controller
+    public class CustomeStatusController : Controller
     {
         private GamesContext db = new GamesContext();
 
-        [ChildActionOnly]
-        public ActionResult GamesOwn()
-        {
-            var gamesown = db.games.ToList();
-            return PartialView(gamesown);
-
-        }
-        public ActionResult Search(string SearchBox)
-        {
-            var customers = (from s in db.Customer
-                             where s.CustomerName.Contains(SearchBox)
-                             || s.Contact.Contains(SearchBox)
-                             select s).ToList();
-
-            return View("Index", customers);
-        }
-        // GET: Customers
+        // GET: CustomerAdmin
         public ActionResult Index()
         {
-            return View(db.Customer.ToList());
+            CustomerStatus customerStatus = new CustomerStatus();
+            
+            customerStatus.Status = db.Status.ToList();
+            customerStatus.customer = db.Customer;
+           return View(customerStatus);
         }
 
-        // GET: Customers/Details/5
+        // GET: CustomerAdmin/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -51,18 +39,18 @@ namespace GameTrading.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Create
+        // GET: CustomerAdmin/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: CustomerAdmin/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,CustomerName,Address,Contact, Email")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerID,CustomerName,Address,Contact,Email")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +62,7 @@ namespace GameTrading.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Edit/5
+        // GET: CustomerAdmin/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -89,12 +77,12 @@ namespace GameTrading.Controllers
             return View(customer);
         }
 
-        // POST: Customers/Edit/5
+        // POST: CustomerAdmin/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,CustomerName,Address,Contact, Email")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerID,CustomerName,Address,Contact,Email")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +93,7 @@ namespace GameTrading.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Delete/5
+        // GET: CustomerAdmin/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,7 +108,7 @@ namespace GameTrading.Controllers
             return View(customer);
         }
 
-        // POST: Customers/Delete/5
+        // POST: CustomerAdmin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

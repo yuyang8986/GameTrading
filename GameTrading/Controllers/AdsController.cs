@@ -64,7 +64,7 @@ namespace GameTrading.Controllers
         // GET: Ads/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.customer, "CustomerID", "CustomerName");
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "CustomerName");
             ViewBag.GameID = new SelectList(db.games, "GameID", "GameName");
             return View();
         }
@@ -83,7 +83,7 @@ namespace GameTrading.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.customer, "CustomerID", "CustomerName", ad.CustomerID);
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "CustomerName", ad.CustomerID);
             ViewBag.GameID = new SelectList(db.games, "GameID", "GameName" , ad.GameID);
             return View(ad);
         }
@@ -100,7 +100,7 @@ namespace GameTrading.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.customer, "CustomerID", "CustomerName", ad.CustomerID);
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "CustomerName", ad.CustomerID);
             ViewBag.GameID = new SelectList(db.games, "GameID", "GameName", ad.GameID);
             return View(ad);
         }
@@ -118,7 +118,7 @@ namespace GameTrading.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.customer, "CustomerID", "CustomerName", ad.CustomerID);
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "CustomerName", ad.CustomerID);
             ViewBag.GameID = new SelectList(db.games, "GameID", "GameName", ad.GameID);
             return View(ad);
         }
